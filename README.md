@@ -2,7 +2,6 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/roomies/nexmo-voice-channel.svg?style=flat-square)](https://packagist.org/packages/roomies/nexmo-voice-channel)
 [![Build Status](https://img.shields.io/travis/roomies/nexmo-voice-channel/master.svg?style=flat-square)](https://travis-ci.org/roomies/nexmo-voice-channel)
-[![Quality Score](https://img.shields.io/scrutinizer/g/roomies/nexmo-voice-channel.svg?style=flat-square)](https://scrutinizer-ci.com/g/roomies/nexmo-voice-channel)
 [![Total Downloads](https://img.shields.io/packagist/dt/roomies/nexmo-voice-channel.svg?style=flat-square)](https://packagist.org/packages/roomies/nexmo-voice-channel)
 
 This package provides a notification channel for the Laravel framework that works with Nexmo's voice API, allowing text-to-speech phone calls. It also provides a fluent interface to construct your message content.
