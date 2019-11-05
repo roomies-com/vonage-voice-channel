@@ -2,8 +2,10 @@
     "name": "roomies/nexmo-voice-channel",
     "description": "Send Laravel notifications through a phone call",
     "keywords": [
+        "laravel",
         "roomies",
-        "nexmo-voice-channel"
+        "nexmo-voice-channel",
+        "laravel-notification-channel"
     ],
     "homepage": "https://github.com/roomies/nexmo-voice-channel",
     "license": "MIT",
