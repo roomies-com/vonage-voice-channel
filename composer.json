@@ -1,0 +1,53 @@
+{
+    "name": "roomies/nexmo-voice-channel",
+    "description": "Send Laravel notifications through a phone call",
+    "keywords": [
+        "roomies",
+        "nexmo-voice-channel"
+    ],
+    "homepage": "https://github.com/roomies/nexmo-voice-channel",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Dwight Watson",
+            "email": "dwight@roomies.com",
+            "homepage": "https://www.roomies.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.3",
+        "illuminate/notifications": "^6.0",
+        "illuminate/support": "^6.0",
+        "nexmo/laravel": "^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Roomies\\NexmoVoiceChannel\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Roomies\\NexmoVoiceChannel\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Roomies\\NexmoVoiceChannel\\NexmoVoiceChannelServiceProvider"
+            ]
+        }
+    }
+}
