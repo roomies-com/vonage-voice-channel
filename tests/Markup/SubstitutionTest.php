@@ -2,9 +2,9 @@
 
 namespace Roomies\NexmoVoiceChannel\Tests\Markup;
 
-use PHPUnit\Framework\TestCase;
-use Roomies\NexmoVoiceChannel\Markup\Substitution;
 use Roomies\NexmoVoiceChannel\Markup\Sentence;
+use Roomies\NexmoVoiceChannel\Markup\Substitution;
+use Roomies\NexmoVoiceChannel\Tests\TestCase;
 
 class SubstitutionTest extends TestCase
 {

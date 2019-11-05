@@ -55,7 +55,7 @@ public function via($notifiable)
  * Get the voice representation of the notification.
  *
  * @param  mixed  $notifiable
- * @return VoiceMessage
+ * @return \Roomies\NexmoVoiceChannel\Markup\Message
  */
 public function toVoice($notifiable)
 {

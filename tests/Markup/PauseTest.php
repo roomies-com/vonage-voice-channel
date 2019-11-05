@@ -2,8 +2,8 @@
 
 namespace Roomies\NexmoVoiceChannel\Tests\Markup;
 
-use PHPUnit\Framework\TestCase;
 use Roomies\NexmoVoiceChannel\Markup\Pause;
+use Roomies\NexmoVoiceChannel\Tests\TestCase;
 
 class PauseTest extends TestCase
 {
