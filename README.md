@@ -88,6 +88,26 @@ new Sentence([
 ])
 ```
 
+### Custom
+
+Alternatively, you're free to just return your own SSML markup as a string. This gives you complete control if you need something more custom or have more complex requirements.
+
+```php
+/**
+ * Get the voice representation of the notification.
+ *
+ * @param  mixed  $notifiable
+ * @return string
+ */
+public function toVoice($notifiable)
+{
+    return '<speak>
+        <s>Hi, thanks for joining Roomies</s>
+        <s>Your verification code is <say-as interpret-as="spell-out">ABC123</say-as></s>
+    <speak>';
+}
+```
+
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
