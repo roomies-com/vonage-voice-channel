@@ -23,7 +23,7 @@ NEXMO_PRIVATE_KEY=
 
 Then add your call from number and voice to `config/services.php` under the `nexmo` key. You can review the [available voices in the Nexmo documentation](https://developer.nexmo.com/voice/voice-api/guides/text-to-speech).
 
-```
+```php
 'nexmo' => [
     'call_from' => env('NEXMO_CALL_FROM'),
     'call_voice' => env('NEXMO_CALL_VOICE', 'Kimberly'),
