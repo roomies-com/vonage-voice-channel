@@ -4,8 +4,10 @@ namespace Roomies\NexmoVoiceChannel\Tests;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Notifications\Notification;
+use Illuminate\Support\Arr;
 use Mockery;
 use Nexmo\Client;
+use Nexmo\Voice\OutboundCall;
 use Roomies\NexmoVoiceChannel\Markup\Message;
 use Roomies\NexmoVoiceChannel\Markup\Sentence;
 use Roomies\NexmoVoiceChannel\NexmoVoiceChannel;
@@ -19,25 +21,19 @@ class NexmoVoiceChannelTest extends TestCase
 
         $channel = new NexmoVoiceChannel($nexmo = Mockery::mock(Client::class), '4444444444', 'Kimberly');
 
-        $nexmo->shouldReceive('calls->create')
-            ->with([
-                'to' => [[
-                    'type' => 'phone',
-                    'number' => '5555555555',
-                ]],
-                'from' => [
-                    'type' => 'phone',
-                    'number' => '4444444444'
-                ],
-                'ncco' => [
-                    [
-                        'action' => 'talk',
-                        'text' => '<speak><s>Hello, world</s></speak>',
-                        'level' => 1,
-                        'voiceName' => 'Kimberly'
-                    ]
-                ]
-            ])->once();
+        $nexmo->shouldReceive('voice->createOutboundCall')
+            ->with(Mockery::on(function ($outboundCall) {
+                $ncco = Arr::first($outboundCall->getNCCO()->toArray());
+
+                return $outboundCall instanceof OutboundCall
+                    && Arr::get($outboundCall->getTo()->toArray(), 'number') === '5555555555'
+                    && Arr::get($outboundCall->getFrom()->toArray(), 'number') === '4444444444'
+                    && Arr::get($ncco, 'action') === 'talk'
+                    && Arr::get($ncco, 'text') === '<speak><s>Hello, world</s></speak>'
+                    && Arr::get($ncco, 'level') === '1'
+                    && Arr::get($ncco, 'voiceName') === 'Kimberly';
+            }))
+            ->once();
 
         $channel->send($notifiable, $notification);
     }
@@ -49,25 +45,19 @@ class NexmoVoiceChannelTest extends TestCase
 
         $channel = new NexmoVoiceChannel($nexmo = Mockery::mock(Client::class), '4444444444', 'Kimberly');
 
-        $nexmo->shouldReceive('calls->create')
-            ->with([
-                'to' => [[
-                    'type' => 'phone',
-                    'number' => '5555555555',
-                ]],
-                'from' => [
-                    'type' => 'phone',
-                    'number' => '4444444444'
-                ],
-                'ncco' => [
-                    [
-                        'action' => 'talk',
-                        'text' => '<speak><s>Hello, world</s></speak>',
-                        'level' => 1,
-                        'voiceName' => 'Kimberly'
-                    ]
-                ]
-            ])->once();
+        $nexmo->shouldReceive('voice->createOutboundCall')
+            ->with(Mockery::on(function ($outboundCall) {
+                $ncco = Arr::first($outboundCall->getNCCO()->toArray());
+
+                return $outboundCall instanceof OutboundCall
+                    && Arr::get($outboundCall->getTo()->toArray(), 'number') === '5555555555'
+                    && Arr::get($outboundCall->getFrom()->toArray(), 'number') === '4444444444'
+                    && Arr::get($ncco, 'action') === 'talk'
+                    && Arr::get($ncco, 'text') === '<speak><s>Hello, world</s></speak>'
+                    && Arr::get($ncco, 'level') === '1'
+                    && Arr::get($ncco, 'voiceName') === 'Kimberly';
+            }))
+            ->once();
 
         $channel->send($notifiable, $notification);
     }

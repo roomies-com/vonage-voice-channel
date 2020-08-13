@@ -5,6 +5,10 @@ namespace Roomies\NexmoVoiceChannel;
 use App\User;
 use Illuminate\Notifications\Notification;
 use Nexmo\Client;
+use Nexmo\Voice\Endpoint\Phone;
+use Nexmo\Voice\NCCO\Action\Talk;
+use Nexmo\Voice\NCCO\NCCO;
+use Nexmo\Voice\OutboundCall;
 
 class NexmoVoiceChannel
 {
@@ -71,23 +75,15 @@ class NexmoVoiceChannel
      */
     protected function call($phoneNumber, $message)
     {
-        $this->client->calls()->create([
-            'to' => [[
-                'type' => 'phone',
-                'number' => $phoneNumber,
-            ]],
-            'from' => [
-                'type' => 'phone',
-                'number' => $this->from,
-            ],
-            'ncco' => [
-                [
-                    'action' => 'talk',
-                    'text' => $message,
-                    'level' => 1,
-                    'voiceName' => $this->voice,
-                ]
-            ]
-        ]);
+        $outboundCall = new OutboundCall(new Phone($phoneNumber), new Phone($this->from));
+
+        $ncco = (new NCCO)->addAction(Talk::factory($message, [
+            'level' => 1,
+            'voiceName' => $this->voice,
+        ]));
+
+        $outboundCall->setNCCO($ncco);
+
+        $this->client->voice()->createOutboundCall($outboundCall);
     }
 }
