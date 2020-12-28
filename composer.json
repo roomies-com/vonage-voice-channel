@@ -22,7 +22,7 @@
         "php": "^7.3|^8.0",
         "illuminate/notifications": "^8.0",
         "illuminate/support": "^8.0",
-        "nexmo/client-core": "^2.2",
+        "nexmo/client-core": "^2.6",
         "nexmo/laravel": "^2.0"
     },
     "require-dev": {
