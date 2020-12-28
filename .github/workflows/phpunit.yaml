@@ -2,10 +2,9 @@ name: Run tests
 
 on:
     push:
-    pull_request:
 
 jobs:
-    php-tests:
+    phpunit:
         runs-on: ${{ matrix.os }}
 
         strategy:
