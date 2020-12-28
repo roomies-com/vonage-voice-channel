@@ -1,7 +1,6 @@
 # nexmo-voice-channel
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/roomies/nexmo-voice-channel.svg)](https://packagist.org/packages/roomies/nexmo-voice-channel)
-[![Build Status](https://img.shields.io/travis/roomies-com/nexmo-voice-channel/master.svg)](https://travis-ci.org/roomies-com/nexmo-voice-channel)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/roomies-com/nexmo-voice-channel/phpunit)
 [![Total Downloads](https://img.shields.io/packagist/dt/roomies/nexmo-voice-channel.svg)](https://packagist.org/packages/roomies/nexmo-voice-channel)
 
