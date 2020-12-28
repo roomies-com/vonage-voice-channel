@@ -27,25 +27,34 @@ class NexmoVoiceChannel
     protected $from;
 
     /**
-     * The voice to use for calls.
+     * The language to use for calls.
      *
      * @var string
      */
-    protected $voice;
+    protected $language;
+
+    /**
+     * The language style to use for calls.
+     *
+     * @var string
+     */
+    protected $style;
 
     /**
      * Create a new channel instance.
      *
      * @param  \Nexmo\Client  $client
      * @param  string  $from
-     * @param  string  $voice
+     * @param  string  $language
+     * @param  string  $style
      * @return void
      */
-    public function __construct(Client $client, string $from, string $voice)
+    public function __construct(Client $client, string $from, string $language, string $style)
     {
         $this->client = $client;
         $this->from = $from;
-        $this->voice = $voice;
+        $this->language = $language;
+        $this->style = $style;
     }
 
     /**
@@ -79,7 +88,8 @@ class NexmoVoiceChannel
 
         $ncco = (new NCCO)->addAction(Talk::factory($message, [
             'level' => 1,
-            'voiceName' => $this->voice,
+            'language' => $this->language,
+            'style' => $this->style,
         ]));
 
         $outboundCall->setNCCO($ncco);

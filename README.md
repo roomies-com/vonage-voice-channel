@@ -1,8 +1,9 @@
 # nexmo-voice-channel
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/roomies/nexmo-voice-channel.svg?style=flat-square)](https://packagist.org/packages/roomies/nexmo-voice-channel)
-[![Build Status](https://img.shields.io/travis/roomies-com/nexmo-voice-channel/master.svg?style=flat-square)](https://travis-ci.org/roomies-com/nexmo-voice-channel)
-[![Total Downloads](https://img.shields.io/packagist/dt/roomies/nexmo-voice-channel.svg?style=flat-square)](https://packagist.org/packages/roomies/nexmo-voice-channel)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/roomies/nexmo-voice-channel.svg)](https://packagist.org/packages/roomies/nexmo-voice-channel)
+[![Build Status](https://img.shields.io/travis/roomies-com/nexmo-voice-channel/master.svg)](https://travis-ci.org/roomies-com/nexmo-voice-channel)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/roomies-com/nexmo-voice-channel/phpunit)
+[![Total Downloads](https://img.shields.io/packagist/dt/roomies/nexmo-voice-channel.svg)](https://packagist.org/packages/roomies/nexmo-voice-channel)
 
 This package provides a notification channel for the Laravel framework that works with Nexmo's voice API, allowing text-to-speech phone calls. It also provides a fluent interface to construct your message content.
 
@@ -26,7 +27,8 @@ Then add your call from number and voice to `config/services.php` under the `nex
 ```php
 'nexmo' => [
     'call_from' => env('NEXMO_CALL_FROM'),
-    'call_voice' => env('NEXMO_CALL_VOICE', 'Kimberly'),
+    'call_language' => env('NEXMO_CALL_LANGUAGE', 'en-US'),
+    'call_style' => env('NEXMO_CALL_STYLE', 0),
 ],
 ```
 
@@ -34,7 +36,7 @@ Then add your call from number and voice to `config/services.php` under the `nex
 
 Simply route a notification through the `VoiceChannel` and return a formatted message from the `toVoice` method. You use a string with your own [Speech Synthesis Markup Language (SSML)](https://developer.nexmo.com/voice/voice-api/guides/customizing-tts) or use the the included wrapper API to build up your message.
 
-``` php
+```php
 use Roomies\NexmoVoiceChannel\Markup\Message;
 use Roomies\NexmoVoiceChannel\Markup\SayAs;
 use Roomies\NexmoVoiceChannel\Markup\Sentence;
