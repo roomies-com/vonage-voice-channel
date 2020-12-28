@@ -12,7 +12,7 @@ jobs:
                 php: [7.3, 7.4, 8.0]
                 dependency-version: [prefer-lowest, prefer-stable]
 
-        name: P${{ matrix.php }} - ${{ matrix.dependency-version }}
+        name: PHP ${{ matrix.php }} - ${{ matrix.dependency-version }}
 
         steps:
             - name: Checkout code
@@ -22,8 +22,6 @@ jobs:
               uses: shivammathur/setup-php@v1
               with:
                   php-version: ${{ matrix.php }}
-                  extension-csv: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick
-                  coverage: none
 
             - name: Install dependencies
               run: |
