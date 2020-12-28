@@ -20,7 +20,8 @@ class NexmoVoiceChannelServiceProvider extends ServiceProvider
             return new NexmoVoiceChannel(
                 $nexmo,
                 $app['config']['services.nexmo.call_from'],
-                $app['config']['services.nexmo.call_voice'] ?? 'Kimberly'
+                $app['config']['services.nexmo.call_language'] ?? 'en-US',
+                $app['config']['services.nexmo.call_style'] ?? 0
             );
         });
 

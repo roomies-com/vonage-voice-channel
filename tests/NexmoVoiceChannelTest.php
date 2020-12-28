@@ -19,7 +19,7 @@ class NexmoVoiceChannelTest extends TestCase
         $notifiable = new TestNotifiable;
         $notification = new TestMessageNotification;
 
-        $channel = new NexmoVoiceChannel($nexmo = Mockery::mock(Client::class), '4444444444', 'Kimberly');
+        $channel = new NexmoVoiceChannel($nexmo = Mockery::mock(Client::class), '4444444444', 'en-US', 0);
 
         $nexmo->shouldReceive('voice->createOutboundCall')
             ->with(Mockery::on(function ($outboundCall) {
@@ -31,7 +31,8 @@ class NexmoVoiceChannelTest extends TestCase
                     && Arr::get($ncco, 'action') === 'talk'
                     && Arr::get($ncco, 'text') === '<speak><s>Hello, world</s></speak>'
                     && Arr::get($ncco, 'level') === '1'
-                    && Arr::get($ncco, 'voiceName') === 'Kimberly';
+                    && Arr::get($ncco, 'language') === 'en-US'
+                    && Arr::get($ncco, 'style') === '0';
             }))
             ->once();
 
@@ -43,7 +44,7 @@ class NexmoVoiceChannelTest extends TestCase
         $notifiable = new TestNotifiable;
         $notification = new TestTextNotification;
 
-        $channel = new NexmoVoiceChannel($nexmo = Mockery::mock(Client::class), '4444444444', 'Kimberly');
+        $channel = new NexmoVoiceChannel($nexmo = Mockery::mock(Client::class), '4444444444', 'en-US', 0);
 
         $nexmo->shouldReceive('voice->createOutboundCall')
             ->with(Mockery::on(function ($outboundCall) {
@@ -55,7 +56,8 @@ class NexmoVoiceChannelTest extends TestCase
                     && Arr::get($ncco, 'action') === 'talk'
                     && Arr::get($ncco, 'text') === '<speak><s>Hello, world</s></speak>'
                     && Arr::get($ncco, 'level') === '1'
-                    && Arr::get($ncco, 'voiceName') === 'Kimberly';
+                    && Arr::get($ncco, 'language') === 'en-US'
+                    && Arr::get($ncco, 'style') === '0';
             }))
             ->once();
 
