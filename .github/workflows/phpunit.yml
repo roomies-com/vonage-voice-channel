@@ -26,7 +26,7 @@ jobs:
             - name: Install dependencies
               run: |
                   composer require --no-interaction --no-update
-                  composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-suggest
+                  composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction
 
             - name: Execute tests
               run: vendor/bin/phpunit
