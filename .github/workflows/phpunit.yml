@@ -8,11 +8,16 @@ jobs:
         runs-on: ubuntu-latest
 
         strategy:
+            fail-fast: true
             matrix:
-                php: [7.3, 7.4, 8.0]
-                dependency-version: [prefer-lowest, prefer-stable]
+                php: [8.0, 8.1]
+                laravel: [8.*, 9.*]
+                stability: [prefer-lowest, prefer-stable]
+                include:
+                    - laravel: 8.*
+                    - laravel: 9.*
 
-        name: PHP ${{ matrix.php }} - ${{ matrix.dependency-version }}
+        name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }}
 
         steps:
             - name: Checkout code
@@ -25,8 +30,8 @@ jobs:
 
             - name: Install dependencies
               run: |
-                  composer require --no-interaction --no-update
-                  composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction
+                  composer require "laravel/framework:${{ matrix.laravel }}" --no-interaction --no-update
+                  composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
             - name: Execute tests
               run: vendor/bin/phpunit

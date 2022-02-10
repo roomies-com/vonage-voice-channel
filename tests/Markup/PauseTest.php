@@ -1,9 +1,9 @@
 <?php
 
-namespace Roomies\NexmoVoiceChannel\Tests\Markup;
+namespace Roomies\VonageVoiceChannel\Tests\Markup;
 
-use Roomies\NexmoVoiceChannel\Markup\Pause;
-use Roomies\NexmoVoiceChannel\Tests\TestCase;
+use Roomies\VonageVoiceChannel\Markup\Pause;
+use Roomies\VonageVoiceChannel\Tests\TestCase;
 
 class PauseTest extends TestCase
 {

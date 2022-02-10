@@ -1,6 +1,6 @@
 <?php
 
-namespace Roomies\NexmoVoiceChannel\Tests;
+namespace Roomies\VonageVoiceChannel\Tests;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase as BaseTestCase;
