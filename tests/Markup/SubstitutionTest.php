@@ -1,10 +1,10 @@
 <?php
 
-namespace Roomies\NexmoVoiceChannel\Tests\Markup;
+namespace Roomies\VonageVoiceChannel\Tests\Markup;
 
-use Roomies\NexmoVoiceChannel\Markup\Sentence;
-use Roomies\NexmoVoiceChannel\Markup\Substitution;
-use Roomies\NexmoVoiceChannel\Tests\TestCase;
+use Roomies\VonageVoiceChannel\Markup\Sentence;
+use Roomies\VonageVoiceChannel\Markup\Substitution;
+use Roomies\VonageVoiceChannel\Tests\TestCase;
 
 class SubstitutionTest extends TestCase
 {

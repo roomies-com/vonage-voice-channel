@@ -1,45 +1,45 @@
-# nexmo-voice-channel
+# vonage-voice-channel
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/roomies/nexmo-voice-channel.svg)](https://packagist.org/packages/roomies/nexmo-voice-channel)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/roomies-com/nexmo-voice-channel/phpunit)
-[![Total Downloads](https://img.shields.io/packagist/dt/roomies/nexmo-voice-channel.svg)](https://packagist.org/packages/roomies/nexmo-voice-channel)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/roomies/vonage-voice-channel.svg)](https://packagist.org/packages/roomies/vonage-voice-channel)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/roomies-com/vonage-voice-channel/phpunit)
+[![Total Downloads](https://img.shields.io/packagist/dt/roomies/vonage-voice-channel.svg)](https://packagist.org/packages/roomies/vonage-voice-channel)
 
-This package provides a notification channel for the Laravel framework that works with Nexmo's voice API, allowing text-to-speech phone calls. It also provides a fluent interface to construct your message content.
+This package provides a notification channel for the Laravel framework that works with Vonage's voice API, allowing text-to-speech phone calls. It also provides a fluent interface to construct your message content.
 
 ## Installation
 
 You can install the package via Composer:
 
 ```bash
-composer require roomies/nexmo-voice-channel
+composer require roomies/vonage-voice-channel
 ```
 
-Under the hood we use [`nexmo/nexmo-laravel`](https://github.com/Nexmo/nexmo-laravel) to configure Nexmo. This is the same package used by Laravel's first-party Nexmo notification channel. However, in order to make voice calls you need to provide additional credentials in your environment. Note that the private key can be a string or path to the key file.
+Under the hood we use [`laravel/vonage-notification-channel`](https://github.com/laravel/vonage-notification-channel) to configure Vonage, so make sure you have it properly configured using Vonage environment variables. However, in order to make voice calls you need to provide additional credentials in your environment. Note that the private key can be a string or path to the key file.
 
 ```
-NEXMO_APPLICATION_ID=
-NEXMO_PRIVATE_KEY=
+VONAGE_APPLICATION_ID=
+VONAGE_PRIVATE_KEY=
 ```
 
-Then add your call from number and voice to `config/services.php` under the `nexmo` key. You can review the [available voices in the Nexmo documentation](https://developer.nexmo.com/voice/voice-api/guides/text-to-speech).
+Then add your call from number and voice to `config/services.php` under the `vonage` key. You can review the [available voices in the Vonage documentation](https://developer.vonage.com/voice/voice-api/guides/text-to-speech).
 
 ```php
-'nexmo' => [
-    'call_from' => env('NEXMO_CALL_FROM'),
-    'call_language' => env('NEXMO_CALL_LANGUAGE', 'en-US'),
-    'call_style' => env('NEXMO_CALL_STYLE', 0),
+'vonage' => [
+    'call_from' => env('VONAGE_CALL_FROM'),
+    'call_language' => env('VONAGE_CALL_LANGUAGE', 'en-US'),
+    'call_style' => env('VONAGE_CALL_STYLE', 0),
 ],
 ```
 
 ## Usage
 
-Simply route a notification through the `VoiceChannel` and return a formatted message from the `toVoice` method. You use a string with your own [Speech Synthesis Markup Language (SSML)](https://developer.nexmo.com/voice/voice-api/guides/customizing-tts) or use the the included wrapper API to build up your message.
+Simply route a notification through the `VoiceChannel` and return a formatted message from the `toVoice` method. You use a string with your own [Speech Synthesis Markup Language (SSML)](https://developer.vonage.com/voice/voice-api/guides/customizing-tts) or use the the included wrapper API to build up your message.
 
 ```php
-use Roomies\NexmoVoiceChannel\Markup\Message;
-use Roomies\NexmoVoiceChannel\Markup\SayAs;
-use Roomies\NexmoVoiceChannel\Markup\Sentence;
-use Roomies\NexmoVoiceChannel\NexmoVoiceChannel;
+use Roomies\VonageVoiceChannel\Markup\Message;
+use Roomies\VonageVoiceChannel\Markup\SayAs;
+use Roomies\VonageVoiceChannel\Markup\Sentence;
+use Roomies\VonageVoiceChannel\VonageVoiceChannel;
 
 /**
  * Get the notification's delivery channels.
@@ -49,14 +49,14 @@ use Roomies\NexmoVoiceChannel\NexmoVoiceChannel;
  */
 public function via($notifiable)
 {
-    return [NexmoVoiceChannel::class];
+    return [VonageVoiceChannel::class];
 }
 
 /**
  * Get the voice representation of the notification.
  *
  * @param  mixed  $notifiable
- * @return \Roomies\NexmoVoiceChannel\Markup\Message
+ * @return \Roomies\VonageVoiceChannel\Markup\Message
  */
 public function toVoice($notifiable)
 {

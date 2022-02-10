@@ -1,9 +1,9 @@
 <?php
 
-namespace Roomies\NexmoVoiceChannel\Tests\Markup;
+namespace Roomies\VonageVoiceChannel\Tests\Markup;
 
-use Roomies\NexmoVoiceChannel\Markup\SayAs;
-use Roomies\NexmoVoiceChannel\Tests\TestCase;
+use Roomies\VonageVoiceChannel\Markup\SayAs;
+use Roomies\VonageVoiceChannel\Tests\TestCase;
 
 class SayAsTest extends TestCase
 {

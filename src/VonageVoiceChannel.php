@@ -1,21 +1,21 @@
 <?php
 
-namespace Roomies\NexmoVoiceChannel;
+namespace Roomies\VonageVoiceChannel;
 
 use App\User;
 use Illuminate\Notifications\Notification;
-use Nexmo\Client;
-use Nexmo\Voice\Endpoint\Phone;
-use Nexmo\Voice\NCCO\Action\Talk;
-use Nexmo\Voice\NCCO\NCCO;
-use Nexmo\Voice\OutboundCall;
+use Vonage\Client;
+use Vonage\Voice\Endpoint\Phone;
+use Vonage\Voice\NCCO\Action\Talk;
+use Vonage\Voice\NCCO\NCCO;
+use Vonage\Voice\OutboundCall;
 
-class NexmoVoiceChannel
+class VonageVoiceChannel
 {
     /**
-     * The Nexmo client instance.
+     * The Vonage client instance.
      *
-     * @var \Nexmo\Client
+     * @var \Vonage\Client
      */
     protected $client;
 
@@ -43,7 +43,7 @@ class NexmoVoiceChannel
     /**
      * Create a new channel instance.
      *
-     * @param  \Nexmo\Client  $client
+     * @param  \Vonage\Client  $client
      * @param  string  $from
      * @param  string  $language
      * @param  string  $style
@@ -66,7 +66,7 @@ class NexmoVoiceChannel
      */
     public function send($notifiable, Notification $notification)
     {
-        if (! $to = $notifiable->routeNotificationFor('nexmo', $notification)) {
+        if (! $to = $notifiable->routeNotificationFor('vonage', $notification)) {
             return;
         }
 

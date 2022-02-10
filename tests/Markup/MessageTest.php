@@ -1,10 +1,10 @@
 <?php
 
-namespace Roomies\NexmoVoiceChannel\Tests\Markup;
+namespace Roomies\VonageVoiceChannel\Tests\Markup;
 
-use Roomies\NexmoVoiceChannel\Markup\Message;
-use Roomies\NexmoVoiceChannel\Markup\Sentence;
-use Roomies\NexmoVoiceChannel\Tests\TestCase;
+use Roomies\VonageVoiceChannel\Markup\Message;
+use Roomies\VonageVoiceChannel\Markup\Sentence;
+use Roomies\VonageVoiceChannel\Tests\TestCase;
 
 class MessageTest extends TestCase
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Roomies\NexmoVoiceChannel\Markup;
+namespace Roomies\VonageVoiceChannel\Markup;
 
 class Pause extends Markup
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Roomies\NexmoVoiceChannel\Tests\Markup;
+namespace Roomies\VonageVoiceChannel\Tests\Markup;
 
-use Roomies\NexmoVoiceChannel\Markup\Prosody;
-use Roomies\NexmoVoiceChannel\Tests\TestCase;
+use Roomies\VonageVoiceChannel\Markup\Prosody;
+use Roomies\VonageVoiceChannel\Tests\TestCase;
 
 class ProsodyTest extends TestCase
 {

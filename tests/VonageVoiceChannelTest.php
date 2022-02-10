@@ -1,27 +1,27 @@
 <?php
 
-namespace Roomies\NexmoVoiceChannel\Tests;
+namespace Roomies\VonageVoiceChannel\Tests;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Arr;
 use Mockery;
-use Nexmo\Client;
-use Nexmo\Voice\OutboundCall;
-use Roomies\NexmoVoiceChannel\Markup\Message;
-use Roomies\NexmoVoiceChannel\Markup\Sentence;
-use Roomies\NexmoVoiceChannel\NexmoVoiceChannel;
+use Vonage\Client;
+use Vonage\Voice\OutboundCall;
+use Roomies\VonageVoiceChannel\Markup\Message;
+use Roomies\VonageVoiceChannel\Markup\Sentence;
+use Roomies\VonageVoiceChannel\VonageVoiceChannel;
 
-class NexmoVoiceChannelTest extends TestCase
+class VonageVoiceChannelTest extends TestCase
 {
-    public function test_it_calls_nexmo_with_message_content()
+    public function test_it_calls_vonage_with_message_content()
     {
         $notifiable = new TestNotifiable;
         $notification = new TestMessageNotification;
 
-        $channel = new NexmoVoiceChannel($nexmo = Mockery::mock(Client::class), '4444444444', 'en-US', 0);
+        $channel = new VonageVoiceChannel($vonage = Mockery::mock(Client::class), '4444444444', 'en-US', 0);
 
-        $nexmo->shouldReceive('voice->createOutboundCall')
+        $vonage->shouldReceive('voice->createOutboundCall')
             ->with(Mockery::on(function ($outboundCall) {
                 $ncco = Arr::first($outboundCall->getNCCO()->toArray());
 
@@ -39,14 +39,14 @@ class NexmoVoiceChannelTest extends TestCase
         $channel->send($notifiable, $notification);
     }
 
-    public function test_it_calls_nexmo_with_string_content()
+    public function test_it_calls_vonage_with_string_content()
     {
         $notifiable = new TestNotifiable;
         $notification = new TestTextNotification;
 
-        $channel = new NexmoVoiceChannel($nexmo = Mockery::mock(Client::class), '4444444444', 'en-US', 0);
+        $channel = new VonageVoiceChannel($vonage = Mockery::mock(Client::class), '4444444444', 'en-US', 0);
 
-        $nexmo->shouldReceive('voice->createOutboundCall')
+        $vonage->shouldReceive('voice->createOutboundCall')
             ->with(Mockery::on(function ($outboundCall) {
                 $ncco = Arr::first($outboundCall->getNCCO()->toArray());
 
@@ -71,7 +71,7 @@ class TestNotifiable
 
     public $phone_number = '5555555555';
 
-    public function routeNotificationForNexmo($notification)
+    public function routeNotificationForVonage($notification)
     {
         return $this->phone_number;
     }

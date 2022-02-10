@@ -1,13 +1,13 @@
 {
-    "name": "roomies/nexmo-voice-channel",
+    "name": "roomies/vonage-voice-channel",
     "description": "Send Laravel notifications through a phone call",
     "keywords": [
         "laravel",
         "roomies",
-        "nexmo-voice-channel",
+        "vonage-voice-channel",
         "laravel-notification-channel"
     ],
-    "homepage": "https://github.com/roomies/nexmo-voice-channel",
+    "homepage": "https://github.com/roomies/vonage-voice-channel",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -19,11 +19,11 @@
         }
     ],
     "require": {
-        "php": "^7.3|^8.0",
-        "illuminate/notifications": "^8.0",
-        "illuminate/support": "^8.0",
-        "nexmo/laravel": "^2.4",
-        "vonage/client-core": "^2.6"
+        "php": "^8.0",
+        "guzzlehttp/guzzle": "^7.0",
+        "illuminate/notifications": "^8.0|^9.0",
+        "illuminate/support": "^8.0|^9.0",
+        "laravel/vonage-notification-channel": "^3.0"
     },
     "require-dev": {
         "mockery/mockery": "^1.3.1",
@@ -31,12 +31,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Roomies\\NexmoVoiceChannel\\": "src"
+            "Roomies\\VonageVoiceChannel\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Roomies\\NexmoVoiceChannel\\Tests\\": "tests"
+            "Roomies\\VonageVoiceChannel\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -49,7 +49,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Roomies\\NexmoVoiceChannel\\NexmoVoiceChannelServiceProvider"
+                "Roomies\\VonageVoiceChannel\\VonageVoiceChannelServiceProvider"
             ]
         }
     }
