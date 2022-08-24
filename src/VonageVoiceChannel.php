@@ -2,7 +2,6 @@
 
 namespace Roomies\VonageVoiceChannel;
 
-use App\User;
 use Illuminate\Notifications\Notification;
 use Vonage\Client;
 use Vonage\Voice\Endpoint\Phone;
