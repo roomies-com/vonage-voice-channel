@@ -44,7 +44,8 @@
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "preferred-install": "dist"
     },
     "extra": {
         "laravel": {
@@ -52,5 +53,7 @@
                 "Roomies\\VonageVoiceChannel\\VonageVoiceChannelServiceProvider"
             ]
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
