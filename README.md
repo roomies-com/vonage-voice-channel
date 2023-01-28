@@ -1,7 +1,7 @@
 # vonage-voice-channel
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/roomies/vonage-voice-channel.svg)](https://packagist.org/packages/roomies/vonage-voice-channel)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/roomies-com/vonage-voice-channel/phpunit)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/roomies-com/vonage-voice-channel/phpunit.yml?branch=master)
 [![Total Downloads](https://img.shields.io/packagist/dt/roomies/vonage-voice-channel.svg)](https://packagist.org/packages/roomies/vonage-voice-channel)
 
 This package provides a notification channel for the Laravel framework that works with Vonage's voice API, allowing text-to-speech phone calls. It also provides a fluent interface to construct your message content.
