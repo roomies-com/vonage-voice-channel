@@ -61,7 +61,7 @@ class VonageVoiceChannel
      *
      * @param  mixed  $notifiable
      * @param  \Illuminate\Notifications\Notification  $notification
-     * @return void
+     * @return void|\Vonage\Voice\Webhook\Event
      */
     public function send($notifiable, Notification $notification)
     {
@@ -71,7 +71,7 @@ class VonageVoiceChannel
 
         $message = $notification->toVoice($notifiable);
 
-        $this->call($to, (string) $message);
+        return $this->call($to, (string) $message);
     }
 
     /**
@@ -79,7 +79,7 @@ class VonageVoiceChannel
      *
      * @param  string  $phoneNumber
      * @param  string  $message
-     * @return void
+     * @return \Vonage\Voice\Webhook\Event
      */
     protected function call($phoneNumber, $message)
     {
@@ -93,6 +93,6 @@ class VonageVoiceChannel
 
         $outboundCall->setNCCO($ncco);
 
-        $this->client->voice()->createOutboundCall($outboundCall);
+        return $this->client->voice()->createOutboundCall($outboundCall);
     }
 }

@@ -1,4 +1,4 @@
-# vonage-voice-channel
+# Vonage Voice Notification Channel for Laravel
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/roomies/vonage-voice-channel.svg)](https://packagist.org/packages/roomies/vonage-voice-channel)
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/roomies-com/vonage-voice-channel/phpunit.yml?branch=master)
