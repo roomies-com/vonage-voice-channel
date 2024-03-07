@@ -21,8 +21,8 @@
     "require": {
         "php": "^8.1",
         "guzzlehttp/guzzle": "^7.0",
-        "illuminate/notifications": "^9.0|^10.0",
-        "illuminate/support": "^9.0|^10.0",
+        "illuminate/notifications": "^9.0|^10.0|^11.0",
+        "illuminate/support": "^9.0|^10.0|^11.0",
         "laravel/vonage-notification-channel": "^3.2"
     },
     "require-dev": {
