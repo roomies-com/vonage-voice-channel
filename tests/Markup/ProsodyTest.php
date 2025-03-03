@@ -2,9 +2,11 @@
 
 namespace Roomies\VonageVoiceChannel\Tests\Markup;
 
+use PHPUnit\Framework\Attributes\CoversClass;
 use Roomies\VonageVoiceChannel\Markup\Prosody;
 use Roomies\VonageVoiceChannel\Tests\TestCase;
 
+#[CoversClass(Prosody::class)]
 class ProsodyTest extends TestCase
 {
     public function test_it_can_be_instantiated()

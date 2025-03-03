@@ -2,9 +2,11 @@
 
 namespace Roomies\VonageVoiceChannel\Tests\Markup;
 
+use PHPUnit\Framework\Attributes\CoversClass;
 use Roomies\VonageVoiceChannel\Markup\Pause;
 use Roomies\VonageVoiceChannel\Tests\TestCase;
 
+#[CoversClass(Pause::class)]
 class PauseTest extends TestCase
 {
     public function test_it_can_be_instantiated()

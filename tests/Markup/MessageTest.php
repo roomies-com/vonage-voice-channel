@@ -2,10 +2,12 @@
 
 namespace Roomies\VonageVoiceChannel\Tests\Markup;
 
+use PHPUnit\Framework\Attributes\CoversClass;
 use Roomies\VonageVoiceChannel\Markup\Message;
 use Roomies\VonageVoiceChannel\Markup\Sentence;
 use Roomies\VonageVoiceChannel\Tests\TestCase;
 
+#[CoversClass(Message::class)]
 class MessageTest extends TestCase
 {
     public function test_it_can_be_converted_to_string()

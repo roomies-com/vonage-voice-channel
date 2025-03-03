@@ -2,9 +2,11 @@
 
 namespace Roomies\VonageVoiceChannel\Tests\Markup;
 
+use PHPUnit\Framework\Attributes\CoversClass;
 use Roomies\VonageVoiceChannel\Markup\SayAs;
 use Roomies\VonageVoiceChannel\Tests\TestCase;
 
+#[CoversClass(SayAs::class)]
 class SayAsTest extends TestCase
 {
     public function test_it_can_be_converted_to_string()
