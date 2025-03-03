@@ -6,12 +6,16 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Arr;
 use Mockery;
+use PHPUnit\Framework\Attributes\CoversClass;
+use Roomies\VonageVoiceChannel\Markup\Markup;
 use Vonage\Client;
 use Vonage\Voice\OutboundCall;
 use Roomies\VonageVoiceChannel\Markup\Message;
 use Roomies\VonageVoiceChannel\Markup\Sentence;
 use Roomies\VonageVoiceChannel\VonageVoiceChannel;
 
+#[CoversClass(VonageVoiceChannel::class)]
+#[CoversClass(Markup::class)]
 class VonageVoiceChannelTest extends TestCase
 {
     public function test_it_calls_vonage_with_message_content()
